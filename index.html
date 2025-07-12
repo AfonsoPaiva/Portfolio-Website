@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <div class="home-container">
+            <div class="home-content">
+                <h1 class="home-title">Portfolio</h1>
+                <div class="button-container">
+                    <button class="nav-button" onclick="showPage('console')">Console Mode</button>
+                    <button class="nav-button" onclick="showPage('simple')">Simple Mode</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Console Mode Page -->
+    <div id="console" class="page">
+        <button class="back-button" onclick="showPage('home')">Back to Home →</button>
+        <div class="console-container">
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-title">Portfolio Terminal</div>
+                </div>
+                <div class="terminal-body" id="terminal-body">
+                    <!-- Terminal content will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+        <!-- 3D Object Windows Container -->
+        <div id="webgl-windows-container" class="webgl-windows-container">
+            <!-- 3D object windows will be dynamically created here -->
+        </div>
+    </div>
+
+    <!-- Simple Mode Page -->
+    <div id="simple" class="page">
+        <button class="back-button" onclick="showPage('home')">← Back to Home</button>
+        <div class="simple-container" id="simple-container">
+            <div class="simple-content">
+                <div class="section">
+                    <div class="section-content">
+                        <h2 class="section-title">About Me</h2>
+                        <p class="section-text">
+                            I'm a passionate web developer with a love for creating beautiful, 
+                            functional, and user-friendly websites. With expertise in modern web 
+                            technologies, I bring ideas to life through code.
+                        </p>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-content">
+                        <h2 class="section-title">My Skills</h2>
+                        <p class="section-text">
+                            I specialize in frontend development with a strong foundation in 
+                            JavaScript, HTML, CSS, and modern frameworks. I also have experience 
+                            with backend technologies and database management.
+                        </p>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-content">
+                        <h2 class="section-title">Projects</h2>
+                        <div class="project-grid">
+                            <div class="project-card" onclick="expandProjectCard(this)">
+                                <div class="project-close" onclick="closeProjectCard(event, this.parentElement)">&times;</div>
+                                <h3>E-commerce Platform</h3>
+                                <p>A full-stack e-commerce solution built with React and Node.js, featuring user authentication, payment integration, and admin dashboard.</p>
+                                <div class="project-details">
+                                    <h4>Technologies Used:</h4>
+                                    <ul>
+                                        <li>Frontend: React, Redux, CSS3</li>
+                                        <li>Backend: Node.js, Express.js</li>
+                                        <li>Database: MongoDB</li>
+                                        <li>Payment: Stripe API</li>
+                                    </ul>
+                                    <h4>Key Features:</h4>
+                                    <ul>
+                                        <li>User authentication and authorization</li>
+                                        <li>Shopping cart and checkout system</li>
+                                        <li>Admin dashboard for inventory management</li>
+                                        <li>Real-time order tracking</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="project-card" onclick="expandProjectCard(this)">
+                                <div class="project-close" onclick="closeProjectCard(event, this.parentElement)">&times;</div>
+                                <h3>Weather App</h3>
+                                <p>A responsive weather application using Vue.js and OpenWeather API, with location-based forecasts and interactive maps.</p>
+                                <div class="project-details">
+                                    <h4>Technologies Used:</h4>
+                                    <ul>
+                                        <li>Frontend: Vue.js, Vuex</li>
+                                        <li>API: OpenWeather API</li>
+                                        <li>Maps: Leaflet.js</li>
+                                        <li>Styling: SCSS</li>
+                                    </ul>
+                                    <h4>Key Features:</h4>
+                                    <ul>
+                                        <li>Current weather conditions</li>
+                                        <li>5-day weather forecast</li>
+                                        <li>Interactive weather maps</li>
+                                        <li>Location-based services</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="project-card" onclick="expandProjectCard(this)">
+                                <div class="project-close" onclick="closeProjectCard(event, this.parentElement)">&times;</div>
+                                <h3>Task Manager</h3>
+                                <p>A collaborative task management tool built with Angular and Firebase, featuring real-time updates and team collaboration.</p>
+                                <div class="project-details">
+                                    <h4>Technologies Used:</h4>
+                                    <ul>
+                                        <li>Frontend: Angular, TypeScript</li>
+                                        <li>Backend: Firebase</li>
+                                        <li>Database: Firestore</li>
+                                        <li>Authentication: Firebase Auth</li>
+                                    </ul>
+                                    <h4>Key Features:</h4>
+                                    <ul>
+                                        <li>Real-time collaboration</li>
+                                        <li>Task assignment and tracking</li>
+                                        <li>Team workspace management</li>
+                                        <li>Progress visualization</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-content">
+                        <h2 class="section-title">Contact Me</h2>
+                        <p class="section-text">
+                            Ready to work together? Get in touch and let's create something amazing!
+                        </p>
+                        <form class="contact-form" onsubmit="handleSubmit(event)">
+                            <input type="text" class="contact-input" placeholder="Your Name" required>
+                            <input type="email" class="contact-input" placeholder="Your Email" required>
+                            <textarea class="contact-input" rows="4" placeholder="Your Message" required></textarea>
+                            <button type="submit" class="contact-button">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+    </div>
+        </div>
+    </div>
+
+    <!-- Project overlay for expanded cards -->
+    <div class="project-overlay" id="projectOverlay" onclick="closeExpandedProject()"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    
+    <!-- WebGL System Files -->
+    <script src="webgl-physics.js"></script>
+    <script src="webgl-objects.js"></script>
+    <script src="webgl-renderer.js"></script>
+    <script src="webgl-window-manager.js"></script>
+    <script src="console.js"></script>
+  
+</body>
+</html>
